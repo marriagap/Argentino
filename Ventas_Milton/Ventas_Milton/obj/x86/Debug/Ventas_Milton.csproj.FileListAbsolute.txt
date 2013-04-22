@@ -9,3 +9,5 @@ C:\Users\Michael - PC\Desktop\Backup_BS\v1.0\Backup_BS\Proyecto_Milton\Ventas_Mi
 C:\Users\Michael - PC\Desktop\Backup_BS\v1.0\Backup_BS\Proyecto_Milton\Ventas_Milton\Ventas_Milton\obj\x86\Debug\Ventas_Milton.pdb
 F:\RuAn\GitHub\Argentino\Ventas_Milton\Ventas_Milton\obj\x86\Debug\Ventas_Milton.exe
 F:\RuAn\GitHub\Argentino\Ventas_Milton\Ventas_Milton\obj\x86\Debug\Ventas_Milton.pdb
+C:\Users\Michael - PC\Documents\GitHub\Argentino\Ventas_Milton\Ventas_Milton\obj\x86\Debug\Ventas_Milton.exe
+C:\Users\Michael - PC\Documents\GitHub\Argentino\Ventas_Milton\Ventas_Milton\obj\x86\Debug\Ventas_Milton.pdb
