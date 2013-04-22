@@ -1,0 +1,9 @@
+C:\Users\Programador01\Desktop\Backup_BS\Proyecto_Milton\Ventas_Milton\Ventas_Milton\obj\x86\Debug\Ventas_Milton.GuiTests.resources
+C:\Users\Programador01\Desktop\Backup_BS\Proyecto_Milton\Ventas_Milton\Ventas_Milton\obj\x86\Debug\Ventas_Milton.Properties.Resources.resources
+C:\Users\Programador01\Desktop\Backup_BS\Proyecto_Milton\Ventas_Milton\Ventas_Milton\obj\x86\Debug\Ventas_Milton.csproj.GenerateResource.Cache
+C:\Users\Programador01\Desktop\Backup_BS\Proyecto_Milton\Ventas_Milton\Ventas_Milton\bin\Debug\Ventas_Milton.exe
+C:\Users\Programador01\Desktop\Backup_BS\Proyecto_Milton\Ventas_Milton\Ventas_Milton\bin\Debug\Ventas_Milton.pdb
+C:\Users\Programador01\Desktop\Backup_BS\Proyecto_Milton\Ventas_Milton\Ventas_Milton\obj\x86\Debug\Ventas_Milton.exe
+C:\Users\Programador01\Desktop\Backup_BS\Proyecto_Milton\Ventas_Milton\Ventas_Milton\obj\x86\Debug\Ventas_Milton.pdb
+C:\Users\Michael - PC\Desktop\Backup_BS\v1.0\Backup_BS\Proyecto_Milton\Ventas_Milton\Ventas_Milton\obj\x86\Debug\Ventas_Milton.exe
+C:\Users\Michael - PC\Desktop\Backup_BS\v1.0\Backup_BS\Proyecto_Milton\Ventas_Milton\Ventas_Milton\obj\x86\Debug\Ventas_Milton.pdb
