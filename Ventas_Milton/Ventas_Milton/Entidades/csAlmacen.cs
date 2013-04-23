@@ -9,6 +9,13 @@ namespace Ventas_Milton.Datos
     {
         private int _idAlmacen;
         private int _capMaxLotes;
+        private int _eliminado;
+
+        public int Eliminado
+        {
+            get { return _eliminado; }
+            set { _eliminado = value; }
+        }
 
         public csAlmacen(int idAlmacen, int capMAxXLotes)
         {

@@ -16,6 +16,13 @@ namespace Ventas_Milton.Datos
         private int _codOfertas; /*para ventas, los tipos de ofertas que se aplican en */
         private int _codVendedor; /*idPersona => codigo del empleado*/
         private int _codCliente; /*idPersona => codigo del cliente*/
+        private int _eliminado;
+
+        public int Eliminado
+        {
+            get { return _eliminado; }
+            set { _eliminado = value; }
+        }
 
         public csMovimieto(int idMovimiento, string tipoMovimiento, int cantItems, string codInternoMovimiento, string tipoComprobante, double montoPago, int codOfertas, int codVendedor, int codCliente)
         {

@@ -13,6 +13,13 @@ namespace Ventas_Milton.Datos
         private DateTime _fchFAplicacion;
         private string _tipoOferta;
         private int _idFactores;
+        private int _eliminado;
+
+        public int Eliminado
+        {
+            get { return _eliminado; }
+            set { _eliminado = value; }
+        }
 
         public csOfertas(int idOfertas, string factorOfertas, DateTime fIA, DateTime fFA, string tipoOferta, int idFactores)
         {

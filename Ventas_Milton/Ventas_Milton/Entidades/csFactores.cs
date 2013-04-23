@@ -11,6 +11,13 @@ namespace Ventas_Milton.Datos
         private string _tabla;
         private string _concepto;
         private string _monto;
+        private int _eliminado;
+
+        public int Eliminado
+        {
+            get { return _eliminado; }
+            set { _eliminado = value; }
+        }
 
         public csFactores(int idFactores, string tabla, string concepto, string monto)
         {

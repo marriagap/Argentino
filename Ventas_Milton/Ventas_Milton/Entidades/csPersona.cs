@@ -18,6 +18,13 @@ namespace Ventas_Milton.Datos
         //Atributos para Identificar a Personas Naturales de Personas Juridicas
         private string _nroIdentificacion;
         private string _tipoIdentificacion; /*RUC = J; DNI = N; CodigoInterno de Empleado = E*/
+        private int _eliminado;
+
+        public int Eliminado
+        {
+            get { return _eliminado; }
+            set { _eliminado = value; }
+        }
 
         public csPersona(int p_idPersona, string p_primerNombre, string p_segundoNombre, DateTime p_fchNacimiento, string dir_Rs, string telf, string nroId, string tpoId)
         {

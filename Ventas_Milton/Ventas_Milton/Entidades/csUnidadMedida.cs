@@ -11,6 +11,13 @@ namespace Ventas_Milton.Datos
         private string _descripcion;
         private int _valor;
         private int _idUndMedidaPadre; /*idUndMedida => para poder manejar los valores mínimos para las conversiones*/
+        private int _eliminado;
+
+        public int Eliminado
+        {
+            get { return _eliminado; }
+            set { _eliminado = value; }
+        }
 
         public csUnidadMedida(int idUndMedida, string descripcion, int valor, int idUndMedidaPadre)
         {

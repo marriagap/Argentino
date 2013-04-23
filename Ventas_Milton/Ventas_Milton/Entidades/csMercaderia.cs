@@ -21,6 +21,13 @@ namespace Ventas_Milton.Datos
         private int _codUndMedida; /*para obtener la familia de medicion del producto*/
         private int _codFamMercaderia /*idMercaderia_Padre => para obtener el grupo de tipo de producto al que pertenece*/;
         private int _codMercaderiaIntegral /*idMercaderia_Padre => para obtener de donde se ha derivado el producto*/;
+        private int _eliminado;
+
+        public int Eliminado
+        {
+            get { return _eliminado; }
+            set { _eliminado = value; }
+        }
 
         public csMercaderia(int idMercaderia, string codInternoMercaderia, string nomMercaderia,string descripcionMercaderia, string proveedor, int stockDisponible,double precioAdquisicion, double precioXUndMedida, DateTime fAP, string estadoMercaderia,int codUndMedida, int codFamMercaderia, int codMercaderiaIntegral, string cdLote,string tipoLote,int minXLote, DateTime FV, string ubicacionLote)
         {
