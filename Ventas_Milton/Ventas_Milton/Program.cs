@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using Ventas_Milton.Vista;
 
 namespace Ventas_Milton
 {
@@ -15,7 +16,7 @@ namespace Ventas_Milton
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GuiTests());
+            Application.Run(new frmPrincipal());
         }
     }
 }

@@ -77,6 +77,11 @@ namespace Ventas_Milton
             MessageBox.Show(Titulo, "CONSERSA", MessageBoxButtons.OK, MessageBoxIcon.Question);
         }
 
+        public void MostrarMensaje(String Titulo)
+        {
+            MessageBox.Show(Titulo, "CONSERSA", MessageBoxButtons.OK, MessageBoxIcon.Question);
+        }
+
         public void CargarComboBox(DataTable Registro, System.Windows.Forms.ComboBox MyCombo, int indiceCadena)
         {
             Registro.DefaultView.Sort = (Registro.Columns[indiceCadena].ColumnName.ToString() + " ASC");
