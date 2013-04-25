@@ -12,6 +12,7 @@ namespace Ventas_Milton.Datos
     class dAlmacen
     {
         static csConexion con = new csConexion();
+        static int estado;
 
         /*********************CONSULTAS*********************/
         public DataTable ConsultarXCapAlmacen(int cap) {
@@ -132,10 +133,12 @@ namespace Ventas_Milton.Datos
                     cmd.Parameters.AddWithValue("cod", cod.ToString());
 
                     con.getConexion().Open();
+                    estado = cmd.ExecuteNonQuery();
+                    if (estado == 0) 
+                    {
+                        MessageBox.Show("No se pudo realizar la modificacion, ERROR!");
+                    }
 
-                    DataTable dt = new DataTable();
-                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                    da.Fill(dt);
                 }
                 catch (Exception ex)
                 {
@@ -154,7 +157,7 @@ namespace Ventas_Milton.Datos
             using (MySqlCommand cmd = new MySqlCommand())
             {
                 try
-                {
+                {                    
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Connection = con.getConexion();
                     cmd.CommandText = "operar_Tabla";
@@ -167,7 +170,11 @@ namespace Ventas_Milton.Datos
 
                     con.getConexion().Open();
 
-                    MessageBox.Show(cmd.ExecuteNonQuery().ToString());
+                    estado = cmd.ExecuteNonQuery();
+                    if (estado == 0)
+                    {
+                        MessageBox.Show("No se pudo realizar la Eliminación, ERROR!");
+                    }
                 }
                 catch (Exception ex)
                 {

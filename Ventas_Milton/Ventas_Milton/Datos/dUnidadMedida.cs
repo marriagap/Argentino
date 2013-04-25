@@ -11,6 +11,7 @@ namespace Ventas_Milton.Datos
     class dUnidadMedida
     {
         static csConexion con = new csConexion();
+        static int e;
 
         /*************************CONSULTAS*****************************/
         public DataTable ConsultarXCodigo(int cod)
@@ -168,10 +169,12 @@ namespace Ventas_Milton.Datos
                     cmd.Parameters.AddWithValue("cod", cod);
 
                     con.getConexion().Open();
-
-                    DataTable dt = new DataTable();
-                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                    da.Fill(dt);
+                    e = cmd.ExecuteNonQuery();
+                    if (e == 0)
+                    {
+                        MessageBox.Show("No se pudo realizar la Modificación, ERROR!");
+                    }
+                    
                 }
                 catch (Exception ex)
                 {
@@ -201,9 +204,11 @@ namespace Ventas_Milton.Datos
 
                     con.getConexion().Open();
 
-                    DataTable dt = new DataTable();
-                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                    da.Fill(dt);
+                    e = cmd.ExecuteNonQuery();
+                    if (e == 0)
+                    {
+                        MessageBox.Show("No se pudo realizar la Modificación, ERROR!");
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -233,9 +238,11 @@ namespace Ventas_Milton.Datos
 
                     con.getConexion().Open();
 
-                    DataTable dt = new DataTable();
-                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                    da.Fill(dt);
+                    e = cmd.ExecuteNonQuery();
+                    if (e == 0)
+                    {
+                        MessageBox.Show("No se pudo realizar la Modificación, ERROR!");
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -266,10 +273,11 @@ namespace Ventas_Milton.Datos
                     cmd.Parameters.AddWithValue("cod", cod);
 
                     con.getConexion().Open();
-
-                    DataTable dt = new DataTable();
-                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                    da.Fill(dt);
+                    e = cmd.ExecuteNonQuery();
+                    if (estado == 0)
+                    {
+                        MessageBox.Show("No se pudo realizar la Modificación, ERROR!");
+                    }
                 }
                 catch (Exception ex)
                 {
