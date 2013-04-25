@@ -10,10 +10,10 @@ namespace Ventas_Milton.Datos
 {
     class dPersona
     {
-        static csConexion con = new csConexion();
+                static csConexion con = new csConexion();
 
         /*******************************CONSULTAS**********************************/
-        public DataTable ConsultarXCodigo(int cod)
+        public DataTable ConsultarXCodigo(csPersona p)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -24,7 +24,7 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "Persona");
-                    cmd.Parameters.AddWithValue("parm", cod.ToString());
+                    cmd.Parameters.AddWithValue("parm", p.IdPersona);
                     cmd.Parameters.AddWithValue("t_accion", "C");
                     cmd.Parameters.AddWithValue("att", "Codigo");
                     cmd.Parameters.AddWithValue("cod", -1);
@@ -47,7 +47,7 @@ namespace Ventas_Milton.Datos
             }
 
         }
-        public DataTable ConsultarXNombre(string nombre)
+        public DataTable ConsultarXNombre(csPersona p)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -58,7 +58,7 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "Persona");
-                    cmd.Parameters.AddWithValue("parm", nombre);
+                    cmd.Parameters.AddWithValue("parm", p.Nombres);
                     cmd.Parameters.AddWithValue("t_accion", "C");
                     cmd.Parameters.AddWithValue("att", "PrimerNombre");
                     cmd.Parameters.AddWithValue("cod", -1);
@@ -81,7 +81,7 @@ namespace Ventas_Milton.Datos
             }
 
         }
-        public DataTable ConsultarXSegundoNombre(string nombre)
+        public DataTable ConsultarXSegundoNombre(csPersona p)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -92,7 +92,7 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "Persona");
-                    cmd.Parameters.AddWithValue("parm", nombre);
+                    cmd.Parameters.AddWithValue("parm", p.Apellidos);
                     cmd.Parameters.AddWithValue("t_accion", "C");
                     cmd.Parameters.AddWithValue("att", "Apellido_NE");
                     cmd.Parameters.AddWithValue("cod", -1);
@@ -147,7 +147,7 @@ namespace Ventas_Milton.Datos
                 }
             }
         }
-        public DataTable ConsultarXDireccion(string direccion)
+        public DataTable ConsultarXDireccion(csPersona p)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -158,7 +158,7 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "Persona");
-                    cmd.Parameters.AddWithValue("parm", direccion);
+                    cmd.Parameters.AddWithValue("parm", p.DireccionRasonSocial);
                     cmd.Parameters.AddWithValue("t_accion", "C");
                     cmd.Parameters.AddWithValue("att", "Direccion");
                     cmd.Parameters.AddWithValue("cod", -1);
@@ -181,7 +181,7 @@ namespace Ventas_Milton.Datos
             }
 
         }
-        public DataTable ConsultarXTelefono(string telefono)
+        public DataTable ConsultarXTelefono(csPersona p)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -192,7 +192,7 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "Persona");
-                    cmd.Parameters.AddWithValue("parm", telefono);
+                    cmd.Parameters.AddWithValue("parm", p.Telefono);
                     cmd.Parameters.AddWithValue("t_accion", "C");
                     cmd.Parameters.AddWithValue("att", "Telefono");
                     cmd.Parameters.AddWithValue("cod", -1);
@@ -215,7 +215,7 @@ namespace Ventas_Milton.Datos
             }
 
         }
-        public DataTable ConsultarXNroId(string NroIdentificacion)
+        public DataTable ConsultarXNroId(csPersona p)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -226,7 +226,7 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "Persona");
-                    cmd.Parameters.AddWithValue("parm", NroIdentificacion);
+                    cmd.Parameters.AddWithValue("parm", p.NroIdentificacion);
                     cmd.Parameters.AddWithValue("t_accion", "C");
                     cmd.Parameters.AddWithValue("att", "NroId");
                     cmd.Parameters.AddWithValue("cod", -1);
@@ -249,7 +249,7 @@ namespace Ventas_Milton.Datos
             }
 
         }
-        public DataTable ConsultarXTipoId(string tipo)
+        public DataTable ConsultarXTipoId(csPersona p)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -260,7 +260,7 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "Persona");
-                    cmd.Parameters.AddWithValue("parm", tipo);
+                    cmd.Parameters.AddWithValue("parm", p.TipoIdentificacion);
                     cmd.Parameters.AddWithValue("t_accion", "C");
                     cmd.Parameters.AddWithValue("att", "TipoId");
                     cmd.Parameters.AddWithValue("cod", -1);
@@ -317,7 +317,7 @@ namespace Ventas_Milton.Datos
         }
 
         /******************************ACTUALIZACIONES*****************************/
-        public void ModificarNombre(int cod, string nombre)
+        public void ModificarNombre(csPersona p)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -328,10 +328,10 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "Persona");
-                    cmd.Parameters.AddWithValue("parm", nombre);
+                    cmd.Parameters.AddWithValue("parm", p.Nombres);
                     cmd.Parameters.AddWithValue("t_accion", "M");
                     cmd.Parameters.AddWithValue("att", "PrimerNombre");
-                    cmd.Parameters.AddWithValue("cod", cod);
+                    cmd.Parameters.AddWithValue("cod", p.IdPersona);
 
                     con.getConexion().Open();
                     e = cmd.ExecuteNonQuery();
@@ -350,7 +350,7 @@ namespace Ventas_Milton.Datos
                 }
             }
         }
-        public void ModificarSegundoNombre(int cod, string nombre)
+        public void ModificarSegundoNombre(csPersona p)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -361,10 +361,10 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "Persona");
-                    cmd.Parameters.AddWithValue("parm", nombre);
+                    cmd.Parameters.AddWithValue("parm", p.Nombres);
                     cmd.Parameters.AddWithValue("t_accion", "M");
                     cmd.Parameters.AddWithValue("att", "Apellido_NE");
-                    cmd.Parameters.AddWithValue("cod", cod);
+                    cmd.Parameters.AddWithValue("cod", p.IdPersona);
 
                     con.getConexion().Open();
                     e = cmd.ExecuteNonQuery();
@@ -383,7 +383,7 @@ namespace Ventas_Milton.Datos
                 }
             }
         }
-        public void ModificarFechaNacimiento(int cod, DateTime fch)
+        public void ModificarFechaNacimiento(csPersona p)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -394,10 +394,10 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "Persona");
-                    cmd.Parameters.AddWithValue("parm", fch.ToShortDateString());
+                    cmd.Parameters.AddWithValue("parm", p.FchNacimiento.ToShortDateString());
                     cmd.Parameters.AddWithValue("t_accion", "M");
                     cmd.Parameters.AddWithValue("att", "FechaNacimiento");
-                    cmd.Parameters.AddWithValue("cod", cod);
+                    cmd.Parameters.AddWithValue("cod", p.IdPersona);
 
                     con.getConexion().Open();
                     e = cmd.ExecuteNonQuery();
@@ -416,7 +416,7 @@ namespace Ventas_Milton.Datos
                 }
             }
         }
-        public void ModificarDireccion(int cod, string dir)
+        public void ModificarDireccion(csPersona p)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -427,10 +427,10 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "Persona");
-                    cmd.Parameters.AddWithValue("parm", dir);
+                    cmd.Parameters.AddWithValue("parm", p.DireccionRasonSocial);
                     cmd.Parameters.AddWithValue("t_accion", "M");
                     cmd.Parameters.AddWithValue("att", "Direccion");
-                    cmd.Parameters.AddWithValue("cod", cod);
+                    cmd.Parameters.AddWithValue("cod", p.IdPersona);
 
                     con.getConexion().Open();
                     e = cmd.ExecuteNonQuery();
@@ -449,7 +449,7 @@ namespace Ventas_Milton.Datos
                 }
             }
         }
-        public void ModificarTelefono(int cod, string telefono)
+        public void ModificarTelefono(csPersona p)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -460,10 +460,10 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "Persona");
-                    cmd.Parameters.AddWithValue("parm", telefono);
+                    cmd.Parameters.AddWithValue("parm", p.Telefono);
                     cmd.Parameters.AddWithValue("t_accion", "M");
                     cmd.Parameters.AddWithValue("att", "Telefono");
-                    cmd.Parameters.AddWithValue("cod", cod);
+                    cmd.Parameters.AddWithValue("cod", p.IdPersona);
 
                     con.getConexion().Open();
                     e = cmd.ExecuteNonQuery();
@@ -482,7 +482,7 @@ namespace Ventas_Milton.Datos
                 }
             }
         }
-        public void ModificarNroId(int cod, string NroIdentificacion)
+        public void ModificarNroId(csPersona p)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -493,10 +493,10 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "Persona");
-                    cmd.Parameters.AddWithValue("parm", NroIdentificacion);
+                    cmd.Parameters.AddWithValue("parm", p.NroIdentificacion);
                     cmd.Parameters.AddWithValue("t_accion", "M");
                     cmd.Parameters.AddWithValue("att", "NroId");
-                    cmd.Parameters.AddWithValue("cod", cod);
+                    cmd.Parameters.AddWithValue("cod", p.IdPersona);
 
                     con.getConexion().Open();
                     e = cmd.ExecuteNonQuery();
@@ -515,7 +515,7 @@ namespace Ventas_Milton.Datos
                 }
             }
         }
-        public void ModificarTipoId(int cod, string tipo)
+        public void ModificarTipoId(csPersona p)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -526,10 +526,10 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "Persona");
-                    cmd.Parameters.AddWithValue("parm", tipo);
+                    cmd.Parameters.AddWithValue("parm", p.TipoIdentificacion);
                     cmd.Parameters.AddWithValue("t_accion", "M");
                     cmd.Parameters.AddWithValue("att", "TipoId");
-                    cmd.Parameters.AddWithValue("cod", cod);
+                    cmd.Parameters.AddWithValue("cod", p.IdPersona);
 
                     con.getConexion().Open();
                     e = cmd.ExecuteNonQuery();
@@ -548,7 +548,7 @@ namespace Ventas_Milton.Datos
                 }
             }
         }
-        public void ModificarFechaRegistro(int cod, DateTime fch)
+        public void ModificarFechaRegistro(csPersona p)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -559,10 +559,10 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "Persona");
-                    cmd.Parameters.AddWithValue("parm", fch.ToShortDateString());
+                    cmd.Parameters.AddWithValue("parm", p.FechaRegistro);
                     cmd.Parameters.AddWithValue("t_accion", "M");
                     cmd.Parameters.AddWithValue("att", "FechaReg");
-                    cmd.Parameters.AddWithValue("cod", cod);
+                    cmd.Parameters.AddWithValue("cod", p.IdPersona);
 
                     con.getConexion().Open();
                     e = cmd.ExecuteNonQuery();
@@ -583,7 +583,7 @@ namespace Ventas_Milton.Datos
         }
 
         /**********************************ELIMINACION******************************/
-        public void EliminarPersona(int cod, string estado)
+        public void EliminarPersona(csPersona p)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -594,10 +594,10 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "Persona");
-                    cmd.Parameters.AddWithValue("parm", estado);
+                    cmd.Parameters.AddWithValue("parm", p.Eliminado);
                     cmd.Parameters.AddWithValue("t_accion", "E");
                     cmd.Parameters.AddWithValue("att", "Eliminado");
-                    cmd.Parameters.AddWithValue("cod", cod);
+                    cmd.Parameters.AddWithValue("cod", p.IdPersona);
 
                     con.getConexion().Open();
                     e = cmd.ExecuteNonQuery();
@@ -616,5 +616,6 @@ namespace Ventas_Milton.Datos
                 }
             }
         }
+    }
     }
 }

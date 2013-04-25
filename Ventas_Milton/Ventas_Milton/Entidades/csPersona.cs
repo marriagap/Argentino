@@ -19,6 +19,7 @@ namespace Ventas_Milton.Datos
         private string _nroIdentificacion;
         private string _tipoIdentificacion; /*RUC = J; DNI = N; CodigoInterno de Empleado = E*/
         private int _eliminado;
+        private DateTime _fechaRegistro;
 
         public int Eliminado
         {
