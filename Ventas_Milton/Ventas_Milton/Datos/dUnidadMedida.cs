@@ -274,7 +274,7 @@ namespace Ventas_Milton.Datos
 
                     con.getConexion().Open();
                     e = cmd.ExecuteNonQuery();
-                    if (estado == 0)
+                    if (e == 0)
                     {
                         MessageBox.Show("No se pudo realizar la Modificación, ERROR!");
                     }

@@ -376,7 +376,7 @@ namespace Ventas_Milton.Datos
                 }
             }
         }
-        public DataTable ConsultarMercaderiaXEstadp(string estado)
+        public DataTable ConsultarMercaderiaXEstado(string estado)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -475,7 +475,7 @@ namespace Ventas_Milton.Datos
                 }
             }
         }
-        public DataTable ConsultarMercaderiaXMercaderiaIntegra(string m_padre)
+        public DataTable ConsultarMercaderiaXMercaderiaFamilia(string m_padre)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
