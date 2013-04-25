@@ -11,7 +11,7 @@ namespace Ventas_Milton.Manejadores
     {
         dFactores dfactores = new dFactores();
         /***********************************CONSULTAS*****************************/
-        public DataTable BuscarFactor(string parametro, string valor) 
+        public DataTable BuscarFactor(string parametro, csFactores factor) 
         {
             DataTable dt = new DataTable();
             int opcion;
@@ -47,13 +47,13 @@ namespace Ventas_Milton.Manejadores
 
             switch (opcion) 
             {
-                case 1: dt = dfactores.ConsultarXCodigo(int.Parse(valor));
+                case 1: dt = dfactores.ConsultarXCodigo(factor.IdFactores);
                     break;
-                case 2: dt = dfactores.ConsultarXTabla(valor);
+                case 2: dt = dfactores.ConsultarXTabla(factor.Tabla);
                     break;
-                case 3: dt = dfactores.ConsultarXConcepto(valor);
+                case 3: dt = dfactores.ConsultarXConcepto(factor.Concepto);
                     break;
-                case 4: dt = dfactores.ConsultarXMonto(valor);
+                case 4: dt = dfactores.ConsultarXMonto(factor.Monto);
                     break;
                 case 5: dt = dfactores.ConsultaTodos();
                     break;
@@ -64,7 +64,7 @@ namespace Ventas_Milton.Manejadores
         }
 
         /************************ACTUALIZACIONES Y ELIMINACIONES******************/
-        public void ActualizarRegistro_Factores(string parametro, string valor, int cod) 
+        public void ActualizarRegistro_Factores(string parametro, csFactores factor) 
         {
             int opcion;
             if (parametro == "Tabla")
@@ -92,13 +92,13 @@ namespace Ventas_Milton.Manejadores
 
             switch(opcion)
             {
-                case 1: dfactores.ModificarTabla(cod, valor);
+                case 1: dfactores.ModificarTabla(factor.IdFactores, factor.Tabla);
                     break;
-                case 2: dfactores.ModificarConcepto(cod, valor);
+                case 2: dfactores.ModificarConcepto(factor.IdFactores, factor.Concepto);
                     break;
-                case 3: dfactores.ModificarMonto(cod, valor);
+                case 3: dfactores.ModificarMonto(factor.IdFactores, factor.Monto);
                     break;
-                case 4: dfactores.EliminarFactores(cod, int.Parse(valor));
+                case 4: dfactores.EliminarFactores(factor.IdFactores, factor.Eliminado);
                     break;
             }
         }

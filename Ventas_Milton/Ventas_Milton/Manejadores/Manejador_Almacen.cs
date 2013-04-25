@@ -12,7 +12,7 @@ namespace Ventas_Milton.Manejadores
         static dAlmacen dalmacen = new dAlmacen();
 
         /********************************Consultas****************************/
-        public DataTable BuscarAlmacen(string parametro,string valor) {
+        public DataTable BuscarAlmacen(string parametro,csAlmacen almacen) {
             
             int opcion;
             DataTable dt = new DataTable();
@@ -35,9 +35,9 @@ namespace Ventas_Milton.Manejadores
 
             switch (opcion)
             {
-                case 1: dt = dalmacen.ConsultarXCapAlmacen(int.Parse(valor));
+                case 1: dt = dalmacen.ConsultarXCapAlmacen(almacen.CapMaxLotes);
                     break;
-                case 2: dt = dalmacen.ConsultarAlmacenXCodigo(int.Parse(valor));
+                case 2: dt = dalmacen.ConsultarAlmacenXCodigo(almacen.IdAlmacen);
                     break;
                 case 3: dt = dalmacen.ConsultarTodos();
                     break;
@@ -49,7 +49,7 @@ namespace Ventas_Milton.Manejadores
         }
 
         /***********************ACTUALIZACIONES Y ELIMINACIONES***************/
-        public void ActualizarRegistros_Almacen(string tipoAct, string valor, int cod) 
+        public void ActualizarRegistros_Almacen(string tipoAct,csAlmacen almacen) 
         {
             int opcion;
             if (tipoAct == "Modificar")
@@ -63,9 +63,9 @@ namespace Ventas_Milton.Manejadores
 
             switch (opcion) 
             {
-                case 1: dalmacen.ModificarCapacidad(cod, int.Parse(valor));                        
+                case 1: dalmacen.ModificarCapacidad(almacen.IdAlmacen, almacen.CapMaxLotes);                        
                     break;
-                case 2: dalmacen.EliminarAlmacen(cod, int.Parse(valor));
+                case 2: dalmacen.EliminarAlmacen(almacen.IdAlmacen, almacen.Eliminado);
                     break;
             }
         }
