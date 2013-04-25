@@ -19,3 +19,5 @@ F:\RuAn\GitHub\Argentino\Ventas_Milton\Ventas_Milton\obj\x86\Debug\Ventas_Milton
 F:\RuAn\GitHub\Argentino\Ventas_Milton\Ventas_Milton\obj\x86\Debug\GenerateResource.read.1.tlog
 F:\RuAn\GitHub\Argentino\Ventas_Milton\Ventas_Milton\obj\x86\Debug\GenerateResource.write.1.tlog
 F:\RuAn\GitHub\Argentino\Ventas_Milton\Ventas_Milton\obj\x86\Debug\Ventas_Milton.Vista.frmPrincipal.resources
+C:\Users\Programador01\Documents\GitHub\Argentino\Ventas_Milton\Ventas_Milton\obj\x86\Debug\Ventas_Milton.exe
+C:\Users\Programador01\Documents\GitHub\Argentino\Ventas_Milton\Ventas_Milton\obj\x86\Debug\Ventas_Milton.pdb
