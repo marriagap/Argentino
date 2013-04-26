@@ -121,5 +121,13 @@ namespace Ventas_Milton.Manejadores
                     break;
             }
         }
+
+        /*********************************************INSERCIONES************************************************/
+        public void RegistrarNuevaPersona(csPersona per) 
+        {
+            persona.InsertarNuevaPersona(per);
+        }
+
+
     }
 }

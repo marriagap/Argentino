@@ -617,5 +617,47 @@ namespace Ventas_Milton.Datos
                 }
             }
         }
+
+        /****************************INSERCIONES****************************/
+        public void InsertarNuevaPersona(csPersona p)
+        {
+            string sqlquery = 
+                "INSERT INTO FACTORES(primerNombre,segundoNombre,fechaNacimiento,direccionRasonSocial,telefono,nroIdentificacion,tipoIdentificacion,fechaRegistro,eliminado)"
+                + "VALUES(@primerNombre,@segundoNombre,@fechaNacimiento,@direccionRasonSocial,@telefono,@nroIdentificacion,@tipoIdentificacion,@fechaRegistro,@eliminado)";
+            MySqlConnection cn = con.getConexion();
+            cn.Open();
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sqlquery, con.getConexion());
+                cmd.Parameters.Add("@primerNombre", p.Nombres);
+                cmd.Parameters.Add("@segundoNombre", p.Apellidos);
+                cmd.Parameters.Add("@fechaNacimiento", p.FchNacimiento);
+                cmd.Parameters.Add("@direccionRasonSocial", p.DireccionRasonSocial);
+                cmd.Parameters.Add("@telefono", p.Telefono);
+                cmd.Parameters.Add("@nroIdentificacion", p.NroIdentificacion);
+                cmd.Parameters.Add("@tipoIdentificacion", p.TipoIdentificacion);
+                cmd.Parameters.Add("@fechaRegistro", p.FechaRegistro);
+                cmd.Parameters.Add("@eliminado", p.Eliminado);
+                cmd.ExecuteNonQuery();
+
+                cmd.Parameters.Clear();
+                cmd.CommandText = "SELECT @@IDENTITY";
+
+                int ID_Insertado = Convert.ToInt32(cmd.ExecuteScalar());
+
+                cmd.Dispose();
+                cmd = null;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.ToString(), ex);
+            }
+            finally
+            {
+                cn.Close();
+            }
+            MessageBox.Show("La Inserción se realizó Existosamente!");
+        }
     }
 }
