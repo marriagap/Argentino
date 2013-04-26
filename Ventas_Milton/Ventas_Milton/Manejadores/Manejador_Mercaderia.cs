@@ -85,76 +85,76 @@ namespace Ventas_Milton.Manejadores
         }
 
         /***************************************ACTUALIZACIONES Y ELIMINACIONES*********************************/
-        public void ActualizarRegistro(string parametro, csMercaderia mercaderia) 
-        {
-            int opcion = 0;
-            DataTable dt = new DataTable();
+        //public void ActualizarRegistro(string parametro, csMercaderia mercaderia) 
+        //{
+        //    int opcion = 0;
+        //    DataTable dt = new DataTable();
 
-            Hashtable parametros = new Hashtable();
+        //    Hashtable parametros = new Hashtable();
 
-            parametros.Add("Codigo", 1);
-            parametros.Add("CodigoInterno", 2);
-            parametros.Add("Nombre", 3);
-            parametros.Add("Proveedor", 4);
-            parametros.Add("Stock", 5);
-            parametros.Add("PrecioVenta", 6);
-            parametros.Add("FechaAquisicion_Produccion", 7);
-            parametros.Add("PrecioCompra", 8);
-            parametros.Add("Lote", 9);
-            parametros.Add("FechaVencimiento", 10);
-            parametros.Add("Ubicacion", 11);
-            parametros.Add("Estado", 12);
-            parametros.Add("UnidadMedida", 13);
-            parametros.Add("MercaderiaIntegra", 14);
-            parametros.Add("GrupoFamilia", 15);
-            parametros.Add("Eliminado", 16);
+        //    parametros.Add("Codigo", 1);
+        //    parametros.Add("CodigoInterno", 2);
+        //    parametros.Add("Nombre", 3);
+        //    parametros.Add("Proveedor", 4);
+        //    parametros.Add("Stock", 5);
+        //    parametros.Add("PrecioVenta", 6);
+        //    parametros.Add("FechaAquisicion_Produccion", 7);
+        //    parametros.Add("PrecioCompra", 8);
+        //    parametros.Add("Lote", 9);
+        //    parametros.Add("FechaVencimiento", 10);
+        //    parametros.Add("Ubicacion", 11);
+        //    parametros.Add("Estado", 12);
+        //    parametros.Add("UnidadMedida", 13);
+        //    parametros.Add("MercaderiaIntegra", 14);
+        //    parametros.Add("GrupoFamilia", 15);
+        //    parametros.Add("Eliminado", 16);
 
-            for (int i = 0; i <= parametros.Count; i++)
-            {
-                if (parametros.Contains(parametro))
-                {
-                    opcion = int.Parse(parametros[parametro].ToString());
-                }
-                else
-                {
-                    opcion = -1;
-                }
-            }
+        //    for (int i = 0; i <= parametros.Count; i++)
+        //    {
+        //        if (parametros.Contains(parametro))
+        //        {
+        //            opcion = int.Parse(parametros[parametro].ToString());
+        //        }
+        //        else
+        //        {
+        //            opcion = -1;
+        //        }
+        //    }
 
-            switch (opcion)
-            {
-                case 1: dmercaderia.ModificarNombre(mercaderia.IdMercaderia,mercaderia.NomMercaderia);
-                    break;
-                case 2: dmercaderia.ModificarDescripcion(mercaderia.IdMercaderia,mercaderia.DescripcionMercaderia);
-                    break;
-                case 3: dmercaderia.ModificarProveedor(mercaderia.IdMercaderia,mercaderia.Proveedor);
-                    break;
-                case 4: dmercaderia.ModificarStock(mercaderia.IdMercaderia,mercaderia.StockDisponible);
-                    break;
-                case 5: dmercaderia.ModificarPrecioVenta(mercaderia.IdMercaderia,mercaderia.PrecioXUndMedida);
-                    break;
-                case 6: dmercaderia.ModificarFechaAdquisicionProduccion(mercaderia);
-                    break;
-                /*case 7: dmercaderia.ConsultarMercaderiaXFechaAdqProd(mercaderia.FchAdquisicionProduccion.ToShortDateString());
-                    break;*/
-                case 8: dmercaderia
-                    break;
-                case 9: dmercaderia
-                    break;
-                /*case 10: dmercaderia.ConsultarMercaderiaXFechaVencimiento
-                    break;*/
-                case 11: dmercaderia
-                    break;
-                case 12: dmercaderia
-                    break;
-                case 13: dmercaderia
-                    break;
-                /*case 14: dmercaderia.ConsultarMercaderiaXMercaderiaFamilia();
-                    break;*/
-                /*case 15: dmercaderia.ConsultarMercaderiaXMercaderiaIntegra();
-                    break;*/
-            }
-        }
+        //    switch (opcion)
+        //    {
+        //        case 1: dmercaderia.ModificarNombre(mercaderia.IdMercaderia,mercaderia.NomMercaderia);
+        //            break;
+        //        case 2: dmercaderia.ModificarDescripcion(mercaderia.IdMercaderia,mercaderia.DescripcionMercaderia);
+        //            break;
+        //        case 3: dmercaderia.ModificarProveedor(mercaderia.IdMercaderia,mercaderia.Proveedor);
+        //            break;
+        //        case 4: dmercaderia.ModificarStock(mercaderia.IdMercaderia,mercaderia.StockDisponible);
+        //            break;
+        //        case 5: dmercaderia.ModificarPrecioVenta(mercaderia.IdMercaderia,mercaderia.PrecioXUndMedida);
+        //            break;
+        //        case 6: dmercaderia.ModificarFechaAdquisicionProduccion(mercaderia);
+        //            break;
+        //        /*case 7: dmercaderia.ConsultarMercaderiaXFechaAdqProd(mercaderia.FchAdquisicionProduccion.ToShortDateString());
+        //            break;*/
+        //        //case 8: dmercaderia
+        //        //    break;
+        //        //case 9: dmercaderia
+        //        //    break;
+        //        ///*case 10: dmercaderia.ConsultarMercaderiaXFechaVencimiento
+        //        //    break;*/
+        //        //case 11: dmercaderia
+        //        //    break;
+        //        //case 12: dmercaderia
+        //        //    break;
+        //        //case 13: dmercaderia
+        //        //    break;
+        //        /*case 14: dmercaderia.ConsultarMercaderiaXMercaderiaFamilia();
+        //            break;*/
+        //        /*case 15: dmercaderia.ConsultarMercaderiaXMercaderiaIntegra();
+        //            break;*/
+        //    }
+        //}
 
     }
 }
