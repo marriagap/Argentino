@@ -11,6 +11,7 @@ namespace Ventas_Milton.Datos
     class dPersona
     {
         static csConexion con = new csConexion();
+        static int e;
 
         /*******************************CONSULTAS**********************************/
         public DataTable ConsultarXCodigo(csPersona p)

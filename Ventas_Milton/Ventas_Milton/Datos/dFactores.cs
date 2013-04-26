@@ -317,5 +317,40 @@ namespace Ventas_Milton.Datos
             }
         }
 
+        /****************************INSERCIONES****************************/
+        public void InsertarNuevoFactor(csFactores f) 
+        {
+            string sqlquery = "INSERT INTO FACTORES(tabla,concepto,monto,eliminado) VALUES(@tabla,@concepto,@monto,@eliminado)";
+            MySqlConnection cn = con.getConexion();
+            cn.Open();
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sqlquery, con.getConexion());
+                cmd.Parameters.Add("@tabla", f.Tabla);
+                cmd.Parameters.Add("@concepto", f.Concepto);
+                cmd.Parameters.Add("@monto", f.Monto);
+                cmd.Parameters.Add("@eliminado", f.Eliminado);
+                cmd.ExecuteNonQuery();
+
+                cmd.Parameters.Clear();
+                cmd.CommandText = "SELECT @@IDENTITY";
+
+                int ID_Insertado = Convert.ToInt32(cmd.ExecuteScalar());
+
+                cmd.Dispose();
+                cmd = null;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.ToString(), ex);
+            }
+            finally 
+            {
+                cn.Close();
+            }
+            MessageBox.Show("La Inserción se realizó Existosamente!");
+        }
+
     }
 }

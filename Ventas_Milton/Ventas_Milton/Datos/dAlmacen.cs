@@ -15,7 +15,7 @@ namespace Ventas_Milton.Datos
         static int estado;
 
         /*********************CONSULTAS*********************/
-        public DataTable ConsultarXCapAlmacen(int cap) {
+        public DataTable ConsultarXCapAlmacen(csAlmacen a) {
             using (MySqlCommand cmd = new MySqlCommand()) 
             {
                 try
@@ -25,7 +25,7 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "almacen");
-                    cmd.Parameters.AddWithValue("parm", cap.ToString());
+                    cmd.Parameters.AddWithValue("parm", a.CapMaxLotes);
                     cmd.Parameters.AddWithValue("t_accion", "C");
                     cmd.Parameters.AddWithValue("att", "Capacidad");
                     cmd.Parameters.AddWithValue("cod", -1);
@@ -81,7 +81,7 @@ namespace Ventas_Milton.Datos
                 }                
             }
         }
-        public DataTable ConsultarAlmacenXCodigo(int cod) 
+        public DataTable ConsultarAlmacenXCodigo(csAlmacen a) 
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -92,7 +92,7 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "almacen");
-                    cmd.Parameters.AddWithValue("parm", cod.ToString());
+                    cmd.Parameters.AddWithValue("parm", a.IdAlmacen);
                     cmd.Parameters.AddWithValue("t_accion", "C");
                     cmd.Parameters.AddWithValue("att", "Codigo");
                     cmd.Parameters.AddWithValue("cod", -1);
@@ -116,7 +116,7 @@ namespace Ventas_Milton.Datos
         }
 
         /********************ACTUALIZACION******************/        
-        public void ModificarCapacidad(int cod, int cap) 
+        public void ModificarCapacidad(csAlmacen a) 
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -127,10 +127,10 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "almacen");
-                    cmd.Parameters.AddWithValue("parm", cap.ToString());
+                    cmd.Parameters.AddWithValue("parm", a.CapMaxLotes);
                     cmd.Parameters.AddWithValue("t_accion", "M");
                     cmd.Parameters.AddWithValue("att", "Capacidad");
-                    cmd.Parameters.AddWithValue("cod", cod.ToString());
+                    cmd.Parameters.AddWithValue("cod", a.IdAlmacen);
 
                     con.getConexion().Open();
                     estado = cmd.ExecuteNonQuery();
@@ -152,7 +152,7 @@ namespace Ventas_Milton.Datos
         }
 
         /**********************ELIMINAR*********************/
-        public void EliminarAlmacen(int cod, int estado)
+        public void EliminarAlmacen(csAlmacen a)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -163,10 +163,10 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "almacen");
-                    cmd.Parameters.AddWithValue("parm", estado.ToString());
+                    cmd.Parameters.AddWithValue("parm", a.Eliminado);
                     cmd.Parameters.AddWithValue("t_accion", "M");
                     cmd.Parameters.AddWithValue("att", "Estado");
-                    cmd.Parameters.AddWithValue("cod", cod.ToString());
+                    cmd.Parameters.AddWithValue("cod", a.IdAlmacen);
 
                     con.getConexion().Open();
 
@@ -185,6 +185,39 @@ namespace Ventas_Milton.Datos
                     con.getConexion().Close();
                 }
             }
+        }
+
+        /*******************INSERCIONES*********************/
+        public void InsertarNuevoAlmacen(csAlmacen a) 
+        {
+            string sqlquery = "INSERT INTO ALMACEN(capacidadMaxDeLotes,eliminado) VALUES(@capacidadMaxDeLotes,@Eliminado)";
+            MySqlConnection cn = con.getConexion();
+            cn.Open();
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sqlquery, con.getConexion());
+                cmd.Parameters.Add("@capacidadMaxDeLote", a.CapMaxLotes);
+                cmd.Parameters.Add("@Eliminado", a.Eliminado);
+                cmd.ExecuteNonQuery();
+
+                cmd.Parameters.Clear();
+                cmd.CommandText = "SELECT @@IDENTITY";
+
+                int ID_Insertado = Convert.ToInt32(cmd.ExecuteScalar());
+
+                cmd.Dispose();
+                cmd = null;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.ToString(), ex);
+            }
+            finally 
+            {
+                cn.Close();
+            }
+            MessageBox.Show("La Inserción se realizó Existosamente!");
         }
     }
 }

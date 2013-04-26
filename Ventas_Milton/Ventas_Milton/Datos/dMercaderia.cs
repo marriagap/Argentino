@@ -1008,5 +1008,65 @@ namespace Ventas_Milton.Datos
                 }
             }
         }
+
+        /****************************INSERCIONES****************************/
+        public void InsertarNuevaMercaderia(csMercaderia m)
+        {
+            string sqlquery = 
+                "INSERT INTO `pydcom_bd_ventas`.`mercaderia`"
+                    +"(`idMercaderia`, `codInternoMercaderia`, `nomMercaderia`,"
+                    +"`descripcionMercaderia`, `proveedorMercaderia`, `stockDisponible`,"
+                    +"`precioXUnidadMedida`, `fechaAdquisicionProduccion`, `precioAdquisicion`,"
+                    +"`codigoGrupoMercaderia`, `codigoLote`, `tipoLote`, `minXLote`, `fechaVencimiento`,"
+                    +"`ubicacionLote`, `estadoMercaderia`, `eliminado`, `unidadmedida_idUnidadMedida`,"
+                    +"`mercaderia_idMercaderia`, `mercaderia_idMercaderia1`)"
+                    +"VALUES(@codInternoMercaderia, @nomMercaderia, @descripcionMercaderia,@proveedorMercaderia,"
+                    +"@stockDisponible, @precioXUnidadMedida, @fechaAdquisicionProduccion, @precioAdquisicion,"
+                    +"@codigoGrupoMercaderia, @codigoLote, @tipoLote, @minXLote, @fechaVencimiento, @ubicacionLote,"
+                    +"@estadoMercaderia, @eliminado, @unidadmedida_idUnidadMedida, @mercaderia_idMercaderia, @mercaderia_idMercaderia1);";
+
+            MySqlConnection cn = con.getConexion();
+            cn.Open();
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand(sqlquery, con.getConexion());
+                cmd.Parameters.Add("@codInternoMercaderia", m.CodInternoMercaderia);
+                cmd.Parameters.Add("@nomMercaderia", m.NomMercaderia);
+                cmd.Parameters.Add("@descripcionMercaderia", m.DescripcionMercaderia);
+                cmd.Parameters.Add("@proveedorMercaderia", m.Proveedor);
+                cmd.Parameters.Add("@stockDisponible", m.StockDisponible);
+                cmd.Parameters.Add("@precioXUnidadMedida", m.PrecioXUndMedida);
+                cmd.Parameters.Add("@fechaAdquisicionProduccion", m.FchAdquisicionProduccion);
+                cmd.Parameters.Add("@precioAdquisicion", m.PrecioAdquisicion);
+                cmd.Parameters.Add("@codigoLote", m.CodLote);
+                cmd.Parameters.Add("@minXLote", m.MinXLote);
+                cmd.Parameters.Add("@fechaVencimiento", m.FchVencimiento);
+                cmd.Parameters.Add("@ubicacionLote", m.UbicacionLote);
+                cmd.Parameters.Add("@estadoMercaderia", m.EstadoMercaderia);
+                cmd.Parameters.Add("@eliminado", m.Eliminado);
+                cmd.Parameters.Add("@unidadmedida_idUnidadMedida", m.CodUndMedida);
+                cmd.Parameters.Add("@mercaderia_idMercaderia", m.CodFamMercaderia);
+                cmd.Parameters.Add("@mercaderia_idMercaderia1", m.CodMercaderiaIntegral);
+                cmd.ExecuteNonQuery();
+
+                cmd.Parameters.Clear();
+                cmd.CommandText = "SELECT @@IDENTITY";
+
+                int ID_Insertado = Convert.ToInt32(cmd.ExecuteScalar());
+
+                cmd.Dispose();
+                cmd = null;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.ToString(), ex);
+            }
+            finally
+            {
+                cn.Close();
+            }
+            MessageBox.Show("La Inserción se realizó Existosamente!");
+        }
     }
 }
