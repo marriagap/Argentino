@@ -14,7 +14,7 @@ namespace Ventas_Milton.Datos
         static int e;
 
         /**************************CONSULTAS****************************/
-        public DataTable ConsultarXCodigo(int cod)
+        public DataTable ConsultarXCodigo(csMovimieto m)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -25,7 +25,7 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "movimiento");
-                    cmd.Parameters.AddWithValue("parm", cod.ToString());
+                    cmd.Parameters.AddWithValue("parm", m.IdMovimiento);
                     cmd.Parameters.AddWithValue("t_accion", "C");
                     cmd.Parameters.AddWithValue("att", "Codigo");
                     cmd.Parameters.AddWithValue("cod", -1);
@@ -48,7 +48,7 @@ namespace Ventas_Milton.Datos
             }
 
         }
-        public DataTable ConsultarXTipoMovimiento(string tipoMov)
+        public DataTable ConsultarXTipoMovimiento(csMovimieto m)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -59,7 +59,7 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "movimiento");
-                    cmd.Parameters.AddWithValue("parm", tipoMov);
+                    cmd.Parameters.AddWithValue("parm", m.TipoMovimiento);
                     cmd.Parameters.AddWithValue("t_accion", "C");
                     cmd.Parameters.AddWithValue("att", "TipoMov");
                     cmd.Parameters.AddWithValue("cod", -1);
@@ -82,7 +82,7 @@ namespace Ventas_Milton.Datos
             }
 
         }
-        public DataTable ConsultarXCantidadItems(int cant)
+        public DataTable ConsultarXCantidadItems(csMovimieto m)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -93,7 +93,7 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "movimiento");
-                    cmd.Parameters.AddWithValue("parm", cant);
+                    cmd.Parameters.AddWithValue("parm", m.CantItems);
                     cmd.Parameters.AddWithValue("t_accion", "C");
                     cmd.Parameters.AddWithValue("att", "CantidadItems");
                     cmd.Parameters.AddWithValue("cod", -1);
@@ -116,7 +116,7 @@ namespace Ventas_Milton.Datos
             }
 
         }
-        public DataTable ConsultarXCodInterno(string codI)
+        public DataTable ConsultarXCodInterno(csMovimieto m)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -127,7 +127,7 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "movimiento");
-                    cmd.Parameters.AddWithValue("parm", codI);
+                    cmd.Parameters.AddWithValue("parm", m.CodInternoMovimiento);
                     cmd.Parameters.AddWithValue("t_accion", "C");
                     cmd.Parameters.AddWithValue("att", "CodInterno");
                     cmd.Parameters.AddWithValue("cod", -1);
@@ -150,7 +150,7 @@ namespace Ventas_Milton.Datos
             }
 
         }
-        public DataTable ConsultarXTipoComprobante(string tipoComp)
+        public DataTable ConsultarXTipoComprobante(csMovimieto m)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -161,7 +161,7 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "movimiento");
-                    cmd.Parameters.AddWithValue("parm", tipoComp);
+                    cmd.Parameters.AddWithValue("parm", m.CodInternoMovimiento);
                     cmd.Parameters.AddWithValue("t_accion", "C");
                     cmd.Parameters.AddWithValue("att", "TipoComprobante");
                     cmd.Parameters.AddWithValue("cod", -1);
@@ -184,7 +184,7 @@ namespace Ventas_Milton.Datos
             }
 
         }
-        public DataTable ConsultarXMonto(double monto)
+        public DataTable ConsultarXMonto(csMovimieto m)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -195,7 +195,7 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "movimiento");
-                    cmd.Parameters.AddWithValue("parm", monto.ToString());
+                    cmd.Parameters.AddWithValue("parm", m.MontoPago);
                     cmd.Parameters.AddWithValue("t_accion", "C");
                     cmd.Parameters.AddWithValue("att", "Monto");
                     cmd.Parameters.AddWithValue("cod", -1);
@@ -218,7 +218,7 @@ namespace Ventas_Milton.Datos
             }
 
         }
-        public DataTable ConsultarXVendedor(string nroIdVendedor)
+        public DataTable ConsultarXVendedor(csMovimieto m)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -229,7 +229,7 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "movimiento");
-                    cmd.Parameters.AddWithValue("parm", nroIdVendedor);
+                    cmd.Parameters.AddWithValue("parm", m.CodVendedor);
                     cmd.Parameters.AddWithValue("t_accion", "C");
                     cmd.Parameters.AddWithValue("att", "Vendedor");
                     cmd.Parameters.AddWithValue("cod", -1);
@@ -252,7 +252,7 @@ namespace Ventas_Milton.Datos
             }
 
         }
-        public DataTable ConsultarXCliente(string nroIdCliente)
+        public DataTable ConsultarXCliente(csMovimieto m)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -263,7 +263,7 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "movimiento");
-                    cmd.Parameters.AddWithValue("parm", nroIdCliente);
+                    cmd.Parameters.AddWithValue("parm", m.CodCliente);
                     cmd.Parameters.AddWithValue("t_accion", "C");
                     cmd.Parameters.AddWithValue("att", "Cliente");
                     cmd.Parameters.AddWithValue("cod", -1);
@@ -286,7 +286,7 @@ namespace Ventas_Milton.Datos
             }
 
         }
-        public DataTable ConsultarXOfertas(string NomOfertas)
+        public DataTable ConsultarXOfertas(csMovimieto m)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -297,7 +297,7 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "movimiento");
-                    cmd.Parameters.AddWithValue("parm", NomOfertas);
+                    cmd.Parameters.AddWithValue("parm", m.CodOfertas);
                     cmd.Parameters.AddWithValue("t_accion", "C");
                     cmd.Parameters.AddWithValue("att", "Ofertas");
                     cmd.Parameters.AddWithValue("cod", -1);
@@ -356,7 +356,7 @@ namespace Ventas_Milton.Datos
         }
 
         /*************************ACTUALIZACIONES***********************/
-        public void ModificarTipoMovimiento(int cod, string tipo)
+        public void ModificarTipoMovimiento(csMovimieto m)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -367,10 +367,10 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "movimiento");
-                    cmd.Parameters.AddWithValue("parm", tipo);
+                    cmd.Parameters.AddWithValue("parm", m.TipoMovimiento);
                     cmd.Parameters.AddWithValue("t_accion", "M");
                     cmd.Parameters.AddWithValue("att", "TipoMov");
-                    cmd.Parameters.AddWithValue("cod", cod);
+                    cmd.Parameters.AddWithValue("cod", m.IdMovimiento);
 
                     con.getConexion().Open();
                     e = cmd.ExecuteNonQuery();
@@ -389,7 +389,7 @@ namespace Ventas_Milton.Datos
                 }
             }
         }
-        public void ModificarCantidadItems(int cod, int cant)
+        public void ModificarCantidadItems(csMovimieto m)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -400,10 +400,10 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "movimiento");
-                    cmd.Parameters.AddWithValue("parm", cant);
+                    cmd.Parameters.AddWithValue("parm", m.CantItems);
                     cmd.Parameters.AddWithValue("t_accion", "M");
                     cmd.Parameters.AddWithValue("att", "CantidadItems");
-                    cmd.Parameters.AddWithValue("cod", cod);
+                    cmd.Parameters.AddWithValue("cod", m.IdMovimiento);
 
                     con.getConexion().Open();
                     e = cmd.ExecuteNonQuery();
@@ -422,7 +422,7 @@ namespace Ventas_Milton.Datos
                 }
             }
         }
-        public void ModificarTipoComprobante(int cod, string tipo)
+        public void ModificarTipoComprobante(csMovimieto m)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -433,10 +433,10 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "movimiento");
-                    cmd.Parameters.AddWithValue("parm", tipo);
+                    cmd.Parameters.AddWithValue("parm", m.TipoComprobante);
                     cmd.Parameters.AddWithValue("t_accion", "M");
                     cmd.Parameters.AddWithValue("att", "TipoComprobante");
-                    cmd.Parameters.AddWithValue("cod", cod);
+                    cmd.Parameters.AddWithValue("cod", m.IdMovimiento);
 
                     con.getConexion().Open();
                     e = cmd.ExecuteNonQuery();
@@ -455,7 +455,7 @@ namespace Ventas_Milton.Datos
                 }
             }
         }
-        public void ModificarMontoPago(int cod, double monto)
+        public void ModificarMontoPago(csMovimieto m)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -466,10 +466,10 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "movimiento");
-                    cmd.Parameters.AddWithValue("parm", monto.ToString());
+                    cmd.Parameters.AddWithValue("parm", m.MontoPago);
                     cmd.Parameters.AddWithValue("t_accion", "M");
                     cmd.Parameters.AddWithValue("att", "MontoPago");
-                    cmd.Parameters.AddWithValue("cod", cod);
+                    cmd.Parameters.AddWithValue("cod", m.IdMovimiento);
 
                     con.getConexion().Open();
                     e = cmd.ExecuteNonQuery();
@@ -488,7 +488,7 @@ namespace Ventas_Milton.Datos
                 }
             }
         }
-        public void ModificarVendedor(int cod, int idVendedor)
+        public void ModificarVendedor(csMovimieto m)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -499,10 +499,10 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "movimiento");
-                    cmd.Parameters.AddWithValue("parm", idVendedor.ToString());
+                    cmd.Parameters.AddWithValue("parm", m.CodVendedor);
                     cmd.Parameters.AddWithValue("t_accion", "M");
                     cmd.Parameters.AddWithValue("att", "Vendedor");
-                    cmd.Parameters.AddWithValue("cod", cod);
+                    cmd.Parameters.AddWithValue("cod", m.IdMovimiento);
 
                     con.getConexion().Open();
                     e = cmd.ExecuteNonQuery();
@@ -521,7 +521,7 @@ namespace Ventas_Milton.Datos
                 }
             }
         }
-        public void ModificarCliente(int cod, int idCliente)
+        public void ModificarCliente(csMovimieto m)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -532,10 +532,10 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "movimiento");
-                    cmd.Parameters.AddWithValue("parm", idCliente.ToString());
+                    cmd.Parameters.AddWithValue("parm", m.CodCliente);
                     cmd.Parameters.AddWithValue("t_accion", "M");
                     cmd.Parameters.AddWithValue("att", "Cliente");
-                    cmd.Parameters.AddWithValue("cod", cod);
+                    cmd.Parameters.AddWithValue("cod", m.IdMovimiento);
 
                     con.getConexion().Open();
                     e = cmd.ExecuteNonQuery();
@@ -554,7 +554,7 @@ namespace Ventas_Milton.Datos
                 }
             }
         }
-        public void ModificarOfertas(int cod, int idOfertas)
+        public void ModificarOfertas(csMovimieto m)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -565,10 +565,10 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "movimiento");
-                    cmd.Parameters.AddWithValue("parm", idOfertas.ToString());
+                    cmd.Parameters.AddWithValue("parm", m.CodOfertas);
                     cmd.Parameters.AddWithValue("t_accion", "M");
                     cmd.Parameters.AddWithValue("att", "Ofertas");
-                    cmd.Parameters.AddWithValue("cod", cod);
+                    cmd.Parameters.AddWithValue("cod", m.IdMovimiento);
 
                     con.getConexion().Open();
                     e = cmd.ExecuteNonQuery();
@@ -589,7 +589,7 @@ namespace Ventas_Milton.Datos
         }
 
         /**************************ELIMINACION***************************/
-        public void EliminarMovimiento(int cod, string estado)
+        public void EliminarMovimiento(csMovimieto m)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -600,10 +600,10 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "movimiento");
-                    cmd.Parameters.AddWithValue("parm", estado);
+                    cmd.Parameters.AddWithValue("parm", m.Eliminado);
                     cmd.Parameters.AddWithValue("t_accion", "E");
                     cmd.Parameters.AddWithValue("att", "eliminado");
-                    cmd.Parameters.AddWithValue("cod", cod);
+                    cmd.Parameters.AddWithValue("cod", m.IdMovimiento);
 
                     con.getConexion().Open();
                     e = cmd.ExecuteNonQuery();
