@@ -475,7 +475,7 @@ namespace Ventas_Milton.Datos
                 }
             }
         }
-        public DataTable ConsultarMercaderiaXMercaderiaIntegra(string m_padre)
+        public DataTable ConsultarMercaderiaXMercaderiaFamiliaIntegra(string m_padre)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {

@@ -41,9 +41,6 @@ namespace Ventas_Milton.Datos
         //Prueba GitHub v2 MickArriaga
 
 
-        void Ruben {
-            
-        }
 
     }
 }
