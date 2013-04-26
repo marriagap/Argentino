@@ -14,7 +14,7 @@ namespace Ventas_Milton.Datos
         static int e;
 
         /********************CONSULTAS************************/
-        public DataTable ConsultarMercaderiaXCodigo(int cod)
+        public DataTable ConsultarMercaderiaXCodigo(csMercaderia m)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -25,7 +25,7 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "mercaderia");
-                    cmd.Parameters.AddWithValue("parm", cod.ToString());
+                    cmd.Parameters.AddWithValue("parm", m.IdMercaderia);
                     cmd.Parameters.AddWithValue("t_accion", "C");
                     cmd.Parameters.AddWithValue("att", "Codigo");
                     cmd.Parameters.AddWithValue("cod", -1);
@@ -48,7 +48,7 @@ namespace Ventas_Milton.Datos
                 }
             }
         }
-        public DataTable ConsultarMercaderiaXCodInterno(string codInterno)
+        public DataTable ConsultarMercaderiaXCodInterno(csMercaderia m)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -58,7 +58,7 @@ namespace Ventas_Milton.Datos
                     cmd.Connection = con.getConexion();
                     cmd.CommandText = "operar_Tabla";
                     cmd.Parameters.AddWithValue("tabla", "mercaderia");
-                    cmd.Parameters.AddWithValue("parm", codInterno.ToString());
+                    cmd.Parameters.AddWithValue("parm", m.CodInternoMercaderia);
                     cmd.Parameters.AddWithValue("t_accion", "C");
                     cmd.Parameters.AddWithValue("att", "Cod_Interno");
                     cmd.Parameters.AddWithValue("cod", -1);
@@ -81,7 +81,7 @@ namespace Ventas_Milton.Datos
                 }
             }
         }
-        public DataTable ConsultarMercaderiaXNombre(string nombre)
+        public DataTable ConsultarMercaderiaXNombre(csMercaderia m)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -91,7 +91,7 @@ namespace Ventas_Milton.Datos
                     cmd.Connection = con.getConexion();
                     cmd.CommandText = "operar_Tabla";
                     cmd.Parameters.AddWithValue("tabla", "mercaderia");
-                    cmd.Parameters.AddWithValue("parm", nombre);
+                    cmd.Parameters.AddWithValue("parm", m.NomMercaderia);
                     cmd.Parameters.AddWithValue("t_accion", "C");
                     cmd.Parameters.AddWithValue("att", "Nombre");
                     cmd.Parameters.AddWithValue("cod", -1);
@@ -114,7 +114,7 @@ namespace Ventas_Milton.Datos
                 }
             }
         }
-        public DataTable ConsultarMercaderiaXProveedor(string proveedor)
+        public DataTable ConsultarMercaderiaXProveedor(csMercaderia m)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -124,7 +124,7 @@ namespace Ventas_Milton.Datos
                     cmd.Connection = con.getConexion();
                     cmd.CommandText = "operar_Tabla";
                     cmd.Parameters.AddWithValue("tabla", "mercaderia");
-                    cmd.Parameters.AddWithValue("parm", proveedor);
+                    cmd.Parameters.AddWithValue("parm", m.Proveedor);
                     cmd.Parameters.AddWithValue("t_accion", "C");
                     cmd.Parameters.AddWithValue("att", "Proveedor");
                     cmd.Parameters.AddWithValue("cod", -1);
@@ -147,7 +147,7 @@ namespace Ventas_Milton.Datos
                 }
             }
         }
-        public DataTable ConsultarMercaderiaXStock(int stock)
+        public DataTable ConsultarMercaderiaXStock(csMercaderia m)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -157,7 +157,7 @@ namespace Ventas_Milton.Datos
                     cmd.Connection = con.getConexion();
                     cmd.CommandText = "operar_Tabla";
                     cmd.Parameters.AddWithValue("tabla", "mercaderia");
-                    cmd.Parameters.AddWithValue("parm", stock.ToString());
+                    cmd.Parameters.AddWithValue("parm", m.StockDisponible);
                     cmd.Parameters.AddWithValue("t_accion", "C");
                     cmd.Parameters.AddWithValue("att", "Stock");
                     cmd.Parameters.AddWithValue("cod", -1);
@@ -180,7 +180,7 @@ namespace Ventas_Milton.Datos
                 }
             }
         }
-        public DataTable ConsultarMercaderiaXPrecioVenta(double precioVenta)
+        public DataTable ConsultarMercaderiaXPrecioVenta(csMercaderia m)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -190,7 +190,7 @@ namespace Ventas_Milton.Datos
                     cmd.Connection = con.getConexion();
                     cmd.CommandText = "operar_Tabla";
                     cmd.Parameters.AddWithValue("tabla", "mercaderia");
-                    cmd.Parameters.AddWithValue("parm", precioVenta.ToString());
+                    cmd.Parameters.AddWithValue("parm", m.PrecioXUndMedida);
                     cmd.Parameters.AddWithValue("t_accion", "C");
                     cmd.Parameters.AddWithValue("att", "PrecioVenta");
                     cmd.Parameters.AddWithValue("cod", -1);
@@ -245,7 +245,7 @@ namespace Ventas_Milton.Datos
                 }
             }
         }
-        public DataTable ConsultarMercaderiaXPrecioCompra(double precioCompra)
+        public DataTable ConsultarMercaderiaXPrecioCompra(csMercaderia m)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -255,7 +255,7 @@ namespace Ventas_Milton.Datos
                     cmd.Connection = con.getConexion();
                     cmd.CommandText = "operaFechasr_Tabla";
                     cmd.Parameters.AddWithValue("tabla", "Mercaderia");
-                    cmd.Parameters.AddWithValue("parm", precioCompra.ToString());
+                    cmd.Parameters.AddWithValue("parm", m.PrecioAdquisicion);
                     cmd.Parameters.AddWithValue("t_accion", "C");
                     cmd.Parameters.AddWithValue("att", "PrecioCompra");
                     cmd.Parameters.AddWithValue("cod", -1);
@@ -278,7 +278,7 @@ namespace Ventas_Milton.Datos
                 }
             }
         }
-        public DataTable ConsultarMercaderiaXLote(string lote)
+        public DataTable ConsultarMercaderiaXLote(csMercaderia m)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -288,7 +288,7 @@ namespace Ventas_Milton.Datos
                     cmd.Connection = con.getConexion();
                     cmd.CommandText = "operaFechasr_Tabla";
                     cmd.Parameters.AddWithValue("tabla", "Mercaderia");
-                    cmd.Parameters.AddWithValue("parm", lote);
+                    cmd.Parameters.AddWithValue("parm", m.CodLote);
                     cmd.Parameters.AddWithValue("t_accion", "C");
                     cmd.Parameters.AddWithValue("att", "Lote");
                     cmd.Parameters.AddWithValue("cod", -1);
@@ -343,7 +343,7 @@ namespace Ventas_Milton.Datos
                 }
             }
         }
-        public DataTable ConsultarMercaderiaXUbicacion(string ub)
+        public DataTable ConsultarMercaderiaXUbicacion(csMercaderia m)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -353,7 +353,7 @@ namespace Ventas_Milton.Datos
                     cmd.Connection = con.getConexion();
                     cmd.CommandText = "operaFechasr_Tabla";
                     cmd.Parameters.AddWithValue("tabla", "Mercaderia");
-                    cmd.Parameters.AddWithValue("parm", ub);
+                    cmd.Parameters.AddWithValue("parm", m.UbicacionLote);
                     cmd.Parameters.AddWithValue("t_accion", "C");
                     cmd.Parameters.AddWithValue("att", "Ubicacion");
                     cmd.Parameters.AddWithValue("cod", -1);
@@ -376,7 +376,7 @@ namespace Ventas_Milton.Datos
                 }
             }
         }
-        public DataTable ConsultarMercaderiaXEstadp(string estado)
+        public DataTable ConsultarMercaderiaXEstado(csMercaderia m)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -386,7 +386,7 @@ namespace Ventas_Milton.Datos
                     cmd.Connection = con.getConexion();
                     cmd.CommandText = "operaFechasr_Tabla";
                     cmd.Parameters.AddWithValue("tabla", "Mercaderia");
-                    cmd.Parameters.AddWithValue("parm", estado);
+                    cmd.Parameters.AddWithValue("parm", m.EstadoMercaderia);
                     cmd.Parameters.AddWithValue("t_accion", "C");
                     cmd.Parameters.AddWithValue("att", "Estado");
                     cmd.Parameters.AddWithValue("cod", -1);
@@ -409,7 +409,8 @@ namespace Ventas_Milton.Datos
                 }
             }
         }
-        public DataTable ConsultarMercaderiaXUnidadMedida(string und)
+
+        /*public DataTable ConsultarMercaderiaXUnidadMedida(csMercaderia m)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -419,7 +420,7 @@ namespace Ventas_Milton.Datos
                     cmd.Connection = con.getConexion();
                     cmd.CommandText = "operaFechasr_Tabla";
                     cmd.Parameters.AddWithValue("tabla", "Mercaderia");
-                    cmd.Parameters.AddWithValue("parm", und);
+                    cmd.Parameters.AddWithValue("parm",);
                     cmd.Parameters.AddWithValue("t_accion", "C");
                     cmd.Parameters.AddWithValue("att", "UnidadMedida");
                     cmd.Parameters.AddWithValue("cod", -1);
@@ -441,8 +442,8 @@ namespace Ventas_Milton.Datos
                     con.getConexion().Close();
                 }
             }
-        }
-        public DataTable ConsultarMercaderiaXMercaderiaIntegra(string m_padre)
+        }*/
+        /*public DataTable ConsultarMercaderiaXMercaderiaIntegra(csMercaderia m)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -474,8 +475,8 @@ namespace Ventas_Milton.Datos
                     con.getConexion().Close();
                 }
             }
-        }
-        public DataTable ConsultarMercaderiaXMercaderiaFamiliaIntegra(string m_padre)
+        }*/
+        /*public DataTable ConsultarMercaderiaXMercaderiaFamilia(csMercaderia m)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -507,10 +508,10 @@ namespace Ventas_Milton.Datos
                     con.getConexion().Close();
                 }
             }
-        }
+        }*/
 
         /*******************ACTUALIZACIONES******************/
-        public void ModificarNombre(int cod, string nombre)
+        public void ModificarNombre(csMercaderia m)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -521,10 +522,10 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "mercaderia");
-                    cmd.Parameters.AddWithValue("parm", nombre);
+                    cmd.Parameters.AddWithValue("parm", m.NomMercaderia);
                     cmd.Parameters.AddWithValue("t_accion", "M");
                     cmd.Parameters.AddWithValue("att", "Nombre");
-                    cmd.Parameters.AddWithValue("cod", cod);
+                    cmd.Parameters.AddWithValue("cod", m.IdMercaderia);
 
                     con.getConexion().Open();
                     e = cmd.ExecuteNonQuery();
@@ -543,7 +544,7 @@ namespace Ventas_Milton.Datos
                 }
             }
         }
-        public void ModificarDescripcion(int cod, string descripcion)
+        public void ModificarDescripcion(csMercaderia m)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -554,10 +555,10 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "mercaderia");
-                    cmd.Parameters.AddWithValue("parm", descripcion);
+                    cmd.Parameters.AddWithValue("parm", m.DescripcionMercaderia);
                     cmd.Parameters.AddWithValue("t_accion", "M");
                     cmd.Parameters.AddWithValue("att", "Descripcion");
-                    cmd.Parameters.AddWithValue("cod", cod);
+                    cmd.Parameters.AddWithValue("cod", m.IdMercaderia);
 
                     con.getConexion().Open();
                     e = cmd.ExecuteNonQuery();
@@ -576,7 +577,7 @@ namespace Ventas_Milton.Datos
                 }
             }
         }
-        public void ModificarProveedor(int cod, string proveedor)
+        public void ModificarProveedor(csMercaderia m)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -587,10 +588,10 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "mercaderia");
-                    cmd.Parameters.AddWithValue("parm", proveedor);
+                    cmd.Parameters.AddWithValue("parm", m.Proveedor);
                     cmd.Parameters.AddWithValue("t_accion", "M");
                     cmd.Parameters.AddWithValue("att", "Proveedor");
-                    cmd.Parameters.AddWithValue("cod", cod);
+                    cmd.Parameters.AddWithValue("cod", m.IdMercaderia);
 
                     con.getConexion().Open();
                     e = cmd.ExecuteNonQuery();
@@ -609,7 +610,7 @@ namespace Ventas_Milton.Datos
                 }
             }
         }
-        public void ModificarStock(int cod, int stock)
+        public void ModificarStock(csMercaderia m)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -620,10 +621,10 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "mercaderia");
-                    cmd.Parameters.AddWithValue("parm", stock);
+                    cmd.Parameters.AddWithValue("parm", m.StockDisponible);
                     cmd.Parameters.AddWithValue("t_accion", "M");
                     cmd.Parameters.AddWithValue("att", "Stock");
-                    cmd.Parameters.AddWithValue("cod", cod);
+                    cmd.Parameters.AddWithValue("cod", m.IdMercaderia);
 
                     con.getConexion().Open();
                     e = cmd.ExecuteNonQuery();
@@ -642,7 +643,7 @@ namespace Ventas_Milton.Datos
                 }
             }
         }
-        public void ModificarPrecioVenta(int cod, double precioVenta)
+        public void ModificarPrecioVenta(csMercaderia m)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -653,10 +654,10 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "mercaderia");
-                    cmd.Parameters.AddWithValue("parm", precioVenta);
+                    cmd.Parameters.AddWithValue("parm", m.PrecioXUndMedida);
                     cmd.Parameters.AddWithValue("t_accion", "M");
                     cmd.Parameters.AddWithValue("att", "PrecioVenta");
-                    cmd.Parameters.AddWithValue("cod", cod);
+                    cmd.Parameters.AddWithValue("cod", m.IdMercaderia);
 
                     con.getConexion().Open();
                     e = cmd.ExecuteNonQuery();
@@ -675,7 +676,7 @@ namespace Ventas_Milton.Datos
                 }
             }
         }
-        public void ModificarFechaAdquisicionProduccion(int cod, DateTime fch)
+        public void ModificarFechaAdquisicionProduccion(csMercaderia m)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -686,10 +687,10 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "mercaderia");
-                    cmd.Parameters.AddWithValue("parm", fch.ToShortDateString());
+                    cmd.Parameters.AddWithValue("parm", m.FchAdquisicionProduccion.ToShortDateString());
                     cmd.Parameters.AddWithValue("t_accion", "M");
                     cmd.Parameters.AddWithValue("att", "FechaAdquisicionProduccion");
-                    cmd.Parameters.AddWithValue("cod", cod);
+                    cmd.Parameters.AddWithValue("cod", m.IdMercaderia);
 
                     con.getConexion().Open();
                     e = cmd.ExecuteNonQuery();
@@ -708,7 +709,7 @@ namespace Ventas_Milton.Datos
                 }
             }
         }
-        public void ModificarLote(int cod, string lote)
+        public void ModificarLote(csMercaderia m)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -719,10 +720,10 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "mercaderia");
-                    cmd.Parameters.AddWithValue("parm", lote);
+                    cmd.Parameters.AddWithValue("parm", m.CodLote);
                     cmd.Parameters.AddWithValue("t_accion", "M");
                     cmd.Parameters.AddWithValue("att", "Lote");
-                    cmd.Parameters.AddWithValue("cod", cod);
+                    cmd.Parameters.AddWithValue("cod", m.IdMercaderia);
 
                     con.getConexion().Open();
                     e = cmd.ExecuteNonQuery();
@@ -741,7 +742,7 @@ namespace Ventas_Milton.Datos
                 }
             }
         }
-        public void ModificarTipoLote(int cod, string tipoLote)
+        public void ModificarTipoLote(csMercaderia m)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -752,10 +753,10 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "mercaderia");
-                    cmd.Parameters.AddWithValue("parm", tipoLote);
+                    cmd.Parameters.AddWithValue("parm", m.TipoLote);
                     cmd.Parameters.AddWithValue("t_accion", "M");
                     cmd.Parameters.AddWithValue("att", "TipoLote");
-                    cmd.Parameters.AddWithValue("cod", cod);
+                    cmd.Parameters.AddWithValue("cod", m.IdMercaderia);
 
                     con.getConexion().Open();
                     e = cmd.ExecuteNonQuery();
@@ -774,7 +775,7 @@ namespace Ventas_Milton.Datos
                 }
             }
         }
-        public void ModificarMinimo(int cod, int minimo)
+        public void ModificarMinimo(csMercaderia m)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -785,10 +786,10 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "mercaderia");
-                    cmd.Parameters.AddWithValue("parm", minimo);
+                    cmd.Parameters.AddWithValue("parm", m.MinXLote);
                     cmd.Parameters.AddWithValue("t_accion", "M");
                     cmd.Parameters.AddWithValue("att", "Minimo");
-                    cmd.Parameters.AddWithValue("cod", cod);
+                    cmd.Parameters.AddWithValue("cod", m.IdMercaderia);
 
                     con.getConexion().Open();
                     e = cmd.ExecuteNonQuery();
@@ -807,7 +808,7 @@ namespace Ventas_Milton.Datos
                 }
             }
         }
-        public void ModificarFechaVencimiento(int cod, DateTime fch)
+        public void ModificarFechaVencimiento(csMercaderia m)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -818,10 +819,10 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "mercaderia");
-                    cmd.Parameters.AddWithValue("parm", fch);
+                    cmd.Parameters.AddWithValue("parm", m.FchVencimiento.ToShortDateString());
                     cmd.Parameters.AddWithValue("t_accion", "M");
                     cmd.Parameters.AddWithValue("att", "FechaVencimiento");
-                    cmd.Parameters.AddWithValue("cod", cod);
+                    cmd.Parameters.AddWithValue("cod", m.IdMercaderia);
 
                     con.getConexion().Open();
                     e = cmd.ExecuteNonQuery();
@@ -840,7 +841,7 @@ namespace Ventas_Milton.Datos
                 }
             }
         }
-        public void ModificarEstado(int cod, string estado)
+        public void ModificarEstado(csMercaderia m)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -851,10 +852,10 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "mercaderia");
-                    cmd.Parameters.AddWithValue("parm", estado);
+                    cmd.Parameters.AddWithValue("parm", m.EstadoMercaderia);
                     cmd.Parameters.AddWithValue("t_accion", "M");
                     cmd.Parameters.AddWithValue("att", "Estado");
-                    cmd.Parameters.AddWithValue("cod", cod);
+                    cmd.Parameters.AddWithValue("cod", m.IdMercaderia);
 
                     con.getConexion().Open();
                     e = cmd.ExecuteNonQuery();
@@ -873,7 +874,7 @@ namespace Ventas_Milton.Datos
                 }
             }
         }
-        public void ModificarMedida(int cod, int codUndMed)
+        public void ModificarMedida(csMercaderia m)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -884,10 +885,10 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "mercaderia");
-                    cmd.Parameters.AddWithValue("parm", codUndMed.ToString());
+                    cmd.Parameters.AddWithValue("parm", m.CodUndMedida);
                     cmd.Parameters.AddWithValue("t_accion", "M");
                     cmd.Parameters.AddWithValue("att", "Medida");
-                    cmd.Parameters.AddWithValue("cod", cod);
+                    cmd.Parameters.AddWithValue("cod", m.IdMercaderia);
 
                     con.getConexion().Open();
                     e = cmd.ExecuteNonQuery();
@@ -906,7 +907,7 @@ namespace Ventas_Milton.Datos
                 }
             }
         }
-        public void ModificarFamilia(int cod, int codPadre)
+        public void ModificarFamilia(csMercaderia m)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -917,10 +918,10 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "mercaderia");
-                    cmd.Parameters.AddWithValue("parm", codPadre.ToString());
+                    cmd.Parameters.AddWithValue("parm", m.CodFamMercaderia);
                     cmd.Parameters.AddWithValue("t_accion", "M");
                     cmd.Parameters.AddWithValue("att", "Familia");
-                    cmd.Parameters.AddWithValue("cod", cod);
+                    cmd.Parameters.AddWithValue("cod", m.IdMercaderia);
 
                     con.getConexion().Open();
                     e = cmd.ExecuteNonQuery();
@@ -939,7 +940,7 @@ namespace Ventas_Milton.Datos
                 }
             }
         }
-        public void ModificarMercaderiaIntegral(int cod, int codMercaderia)
+        public void ModificarMercaderiaIntegral(csMercaderia m)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -950,10 +951,10 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "mercaderia");
-                    cmd.Parameters.AddWithValue("parm", codMercaderia);
+                    cmd.Parameters.AddWithValue("parm", m.CodMercaderiaIntegral);
                     cmd.Parameters.AddWithValue("t_accion", "M");
                     cmd.Parameters.AddWithValue("att", "MercaderiaIntegral");
-                    cmd.Parameters.AddWithValue("cod", cod);
+                    cmd.Parameters.AddWithValue("cod", m.IdMercaderia);
 
                     con.getConexion().Open();
                     e = cmd.ExecuteNonQuery();
@@ -974,7 +975,7 @@ namespace Ventas_Milton.Datos
         }
 
         /***************************ELIMINACIONES******************************/
-        public void EliminarMercaderia(int cod, int estado)
+        public void EliminarMercaderia(csMercaderia m)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -985,10 +986,10 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "mercaderia");
-                    cmd.Parameters.AddWithValue("parm", estado.ToString());
+                    cmd.Parameters.AddWithValue("parm", m.Eliminado);
                     cmd.Parameters.AddWithValue("t_accion", "M");
                     cmd.Parameters.AddWithValue("att", "Eliminado");
-                    cmd.Parameters.AddWithValue("cod", cod.ToString());
+                    cmd.Parameters.AddWithValue("cod", m.IdMercaderia);
 
                     con.getConexion().Open();
                     e = cmd.ExecuteNonQuery();

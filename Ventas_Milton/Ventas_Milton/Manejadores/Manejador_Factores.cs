@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using Ventas_Milton.Datos;
+using System.Collections;
 
 namespace Ventas_Milton.Manejadores
 {
@@ -14,36 +15,26 @@ namespace Ventas_Milton.Manejadores
         public DataTable BuscarFactor(string parametro, csFactores factor) 
         {
             DataTable dt = new DataTable();
-            int opcion;
-            if (parametro == "Codigo")
+            int opcion = 0;
+
+            Hashtable parametros = new Hashtable();
+            parametros.Add("Codigo", 1);
+            parametros.Add("Tabla", 1);
+            parametros.Add("Concepto", 1);
+            parametros.Add("Monto", 1);
+            parametros.Add("Todos", 1);
+
+            for (int i = 0; i <= parametros.Count; i++)
             {
-                opcion = 1;
-            }
-            else 
-            {
-                if (parametro == "Tabla")
+                if (parametros.Contains(parametro))
                 {
-                    opcion = 2;
+                    opcion = int.Parse(parametros[parametro].ToString());
                 }
                 else
                 {
-                    if (parametro == "Concepto")
-                    {
-                        opcion = 3;
-                    }
-                    else
-                    {
-                        if (parametro == "Monto")
-                        {
-                            opcion = 4;
-                        }
-                        else
-                        { 
-                            opcion = 5;
-                        }
-                    }
+                    opcion = -1;
                 }
-            }
+            }            
 
             switch (opcion) 
             {

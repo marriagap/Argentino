@@ -14,7 +14,7 @@ namespace Ventas_Milton.Datos
         static int e;
 
         /*************************CONSULTAS*****************************/
-        public DataTable ConsultarXCodigo(int cod)
+        public DataTable ConsultarXCodigo(csUnidadMedida um)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -25,7 +25,7 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "UnidadMedida");
-                    cmd.Parameters.AddWithValue("parm", cod.ToString());
+                    cmd.Parameters.AddWithValue("parm", um.IdUndMedida);
                     cmd.Parameters.AddWithValue("t_accion", "C");
                     cmd.Parameters.AddWithValue("att", "Codigo");
                     cmd.Parameters.AddWithValue("cod", -1);
@@ -48,7 +48,7 @@ namespace Ventas_Milton.Datos
             }
 
         }
-        public DataTable ConsultarXDescripcion(string descripcion)
+        public DataTable ConsultarXDescripcion(csUnidadMedida um)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -59,7 +59,7 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "UnidadMedida");
-                    cmd.Parameters.AddWithValue("parm", descripcion);
+                    cmd.Parameters.AddWithValue("parm", um.Descripcion);
                     cmd.Parameters.AddWithValue("t_accion", "C");
                     cmd.Parameters.AddWithValue("att", "Descripcion");
                     cmd.Parameters.AddWithValue("cod", -1);
@@ -82,7 +82,7 @@ namespace Ventas_Milton.Datos
             }
 
         }
-        public DataTable ConsultarXValor(string valor)
+        public DataTable ConsultarXValor(csUnidadMedida um)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -93,7 +93,7 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "UnidadMedida");
-                    cmd.Parameters.AddWithValue("parm", valor);
+                    cmd.Parameters.AddWithValue("parm", um.Valor);
                     cmd.Parameters.AddWithValue("t_accion", "C");
                     cmd.Parameters.AddWithValue("att", "Valor");
                     cmd.Parameters.AddWithValue("cod", -1);
@@ -116,7 +116,7 @@ namespace Ventas_Milton.Datos
             }
 
         }
-        public DataTable ConsultarXPadre(string valorPadre)
+        public DataTable ConsultarXPadre(csUnidadMedida um)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -127,7 +127,7 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "UnidadMedida");
-                    cmd.Parameters.AddWithValue("parm", valorPadre);
+                    cmd.Parameters.AddWithValue("parm", um.IdUndMedidaPadre);
                     cmd.Parameters.AddWithValue("t_accion", "C");
                     cmd.Parameters.AddWithValue("att", "Padre");
                     cmd.Parameters.AddWithValue("cod", -1);
@@ -152,7 +152,7 @@ namespace Ventas_Milton.Datos
         }
 
         /***********************ACTUALIZACIONES*************************/
-        public void ModificarDescripcion(int cod, string descripcion)
+        public void ModificarDescripcion(csUnidadMedida um)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -163,10 +163,10 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "UnidadMedida");
-                    cmd.Parameters.AddWithValue("parm", descripcion);
+                    cmd.Parameters.AddWithValue("parm", um.Descripcion);
                     cmd.Parameters.AddWithValue("t_accion", "M");
                     cmd.Parameters.AddWithValue("att", "Descripcion");
-                    cmd.Parameters.AddWithValue("cod", cod);
+                    cmd.Parameters.AddWithValue("cod", um.IdUndMedida);
 
                     con.getConexion().Open();
                     e = cmd.ExecuteNonQuery();
@@ -186,7 +186,7 @@ namespace Ventas_Milton.Datos
                 }
             }
         }
-        public void ModificarValor(int cod, string valor)
+        public void ModificarValor(csUnidadMedida um)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -197,10 +197,10 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "UnidadMedida");
-                    cmd.Parameters.AddWithValue("parm", valor);
+                    cmd.Parameters.AddWithValue("parm", um.Valor);
                     cmd.Parameters.AddWithValue("t_accion", "M");
                     cmd.Parameters.AddWithValue("att", "Valor");
-                    cmd.Parameters.AddWithValue("cod", cod);
+                    cmd.Parameters.AddWithValue("cod", um.IdUndMedida);
 
                     con.getConexion().Open();
 
@@ -220,7 +220,7 @@ namespace Ventas_Milton.Datos
                 }
             }
         }
-        public void ModificarPadre(int cod, int idPadre)
+        public void ModificarPadre(csUnidadMedida um)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -231,10 +231,10 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "UnidadMedida");
-                    cmd.Parameters.AddWithValue("parm", idPadre.ToString());
+                    cmd.Parameters.AddWithValue("parm", um.IdUndMedidaPadre);
                     cmd.Parameters.AddWithValue("t_accion", "M");
                     cmd.Parameters.AddWithValue("att", "Padre");
-                    cmd.Parameters.AddWithValue("cod", cod);
+                    cmd.Parameters.AddWithValue("cod", um.IdUndMedida);
 
                     con.getConexion().Open();
 
@@ -256,7 +256,7 @@ namespace Ventas_Milton.Datos
         }
 
         /*************************ELIMINACION***************************/
-        public void EliminarUnidadMedida(int cod, string estado)
+        public void EliminarUnidadMedida(csUnidadMedida um)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -267,14 +267,14 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "UnidadMedida");
-                    cmd.Parameters.AddWithValue("parm", estado);
+                    cmd.Parameters.AddWithValue("parm", um.Eliminado);
                     cmd.Parameters.AddWithValue("t_accion", "M");
                     cmd.Parameters.AddWithValue("att", "Eliminado");
-                    cmd.Parameters.AddWithValue("cod", cod);
+                    cmd.Parameters.AddWithValue("cod", um.IdUndMedida);
 
                     con.getConexion().Open();
                     e = cmd.ExecuteNonQuery();
-                    if (estado == 0)
+                    if (e == 0)
                     {
                         MessageBox.Show("No se pudo realizar la Modificación, ERROR!");
                     }

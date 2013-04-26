@@ -10,7 +10,7 @@ namespace Ventas_Milton.Datos
 {
     class dPersona
     {
-                static csConexion con = new csConexion();
+        static csConexion con = new csConexion();
 
         /*******************************CONSULTAS**********************************/
         public DataTable ConsultarXCodigo(csPersona p)
@@ -617,5 +617,4 @@ namespace Ventas_Milton.Datos
             }
         }
     }
-    
 }

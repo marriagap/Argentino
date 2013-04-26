@@ -21,11 +21,3 @@ F:\RuAn\GitHub\Argentino\Ventas_Milton\Ventas_Milton\obj\x86\Debug\GenerateResou
 F:\RuAn\GitHub\Argentino\Ventas_Milton\Ventas_Milton\obj\x86\Debug\Ventas_Milton.Vista.frmPrincipal.resources
 C:\Users\Programador01\Documents\GitHub\Argentino\Ventas_Milton\Ventas_Milton\obj\x86\Debug\Ventas_Milton.exe
 C:\Users\Programador01\Documents\GitHub\Argentino\Ventas_Milton\Ventas_Milton\obj\x86\Debug\Ventas_Milton.pdb
-C:\Users\Programador01\Documents\GitHub\Argentino\Ventas_Milton\Ventas_Milton\obj\x86\Debug\Ventas_Milton.csprojResolveAssemblyReference.cache
-C:\Users\Programador01\Documents\GitHub\Argentino\Ventas_Milton\Ventas_Milton\obj\x86\Debug\Ventas_Milton.GuiTests.resources
-C:\Users\Programador01\Documents\GitHub\Argentino\Ventas_Milton\Ventas_Milton\obj\x86\Debug\Ventas_Milton.Properties.Resources.resources
-C:\Users\Programador01\Documents\GitHub\Argentino\Ventas_Milton\Ventas_Milton\obj\x86\Debug\Ventas_Milton.Vista.frmAcceso.resources
-C:\Users\Programador01\Documents\GitHub\Argentino\Ventas_Milton\Ventas_Milton\obj\x86\Debug\Ventas_Milton.Vista.frmPersonas.resources
-C:\Users\Programador01\Documents\GitHub\Argentino\Ventas_Milton\Ventas_Milton\obj\x86\Debug\Ventas_Milton.Vista.frmPrincipal.resources
-C:\Users\Programador01\Documents\GitHub\Argentino\Ventas_Milton\Ventas_Milton\obj\x86\Debug\Ventas_Milton.Vista.frmVentas.resources
-C:\Users\Programador01\Documents\GitHub\Argentino\Ventas_Milton\Ventas_Milton\obj\x86\Debug\Ventas_Milton.csproj.GenerateResource.Cache

@@ -13,6 +13,8 @@ namespace Ventas_Milton
 {
     class funciones
     {
+        
+
         public XmlNodeList LeeXML(String RutaXmlSinApp, String NombreGeneralXml, String NombreNodo)
         {
             XmlDocument xDoc = new XmlDocument();
@@ -25,7 +27,7 @@ namespace Ventas_Milton
             return listaDatos;
         }
 
-        public void Query(string c)
+        public void UPDATE(string c)
         {
             csConexion cn = new csConexion();
             string q = c;
@@ -42,7 +44,7 @@ namespace Ventas_Milton
             }
         }
 
-        public int QueryReturnInt(string c)
+        public int UPDATE(string c)
         {
             csConexion cn = new csConexion();
             string q = c;
@@ -585,41 +587,6 @@ namespace Ventas_Milton
 
         }
 
-        public void AnimarButtonHorizontal(Button miBoton, Int32 indice, Control Control, string Mensaje)
-        {
-            int x = miBoton.Location.Y;
-            if (indice == 1)
-            {
-                miBoton.Size = new System.Drawing.Size(61, 61);
-                miBoton.Location = new System.Drawing.Point(1, x - 2);
-                miBoton.BackColor = System.Drawing.Color.MediumAquamarine;
-            }
-            else
-            {
-                miBoton.Size = new System.Drawing.Size(60, 60);
-                miBoton.Location = new System.Drawing.Point(3, x + 2);
-                miBoton.BackColor = System.Drawing.Color.White;
-            }
-            Control.Text = Mensaje;
-        }
-
-        public void AnimarButtonHorizontal(Button miBoton, Int32 indice, ToolStripLabel Control, string Mensaje)
-        {
-            int x = miBoton.Location.Y;
-            if (indice == 1)
-            {
-                miBoton.Size = new System.Drawing.Size(61, 61);
-                miBoton.Location = new System.Drawing.Point(1, x - 2);
-                miBoton.BackColor = System.Drawing.Color.MediumAquamarine;
-            }
-            else
-            {
-                miBoton.Size = new System.Drawing.Size(60, 60);
-                miBoton.Location = new System.Drawing.Point(3, x + 2);
-                miBoton.BackColor = System.Drawing.Color.White;
-            }
-            Control.Text = Mensaje;
-        }
 
 
 

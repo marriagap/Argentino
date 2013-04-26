@@ -11,9 +11,10 @@ namespace Ventas_Milton.Datos
     class dOfertas
     {
         static csConexion con = new csConexion();
+        static int e;
 
         /*****************************CONSULTAS*******************************/
-        public DataTable ConsultarXCodigo(int cod)
+        public DataTable ConsultarXCodigo(csOfertas o)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -24,7 +25,7 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "Ofertas");
-                    cmd.Parameters.AddWithValue("parm", cod.ToString());
+                    cmd.Parameters.AddWithValue("parm", o.IdFactores);
                     cmd.Parameters.AddWithValue("t_accion", "C");
                     cmd.Parameters.AddWithValue("att", "Codigo");
                     cmd.Parameters.AddWithValue("cod", -1);
@@ -111,7 +112,7 @@ namespace Ventas_Milton.Datos
             }
 
         }
-        public DataTable ConsultarXTipoOferta(string tipo)
+        public DataTable ConsultarXTipoOferta(csOfertas o)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -122,7 +123,7 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "Ofertas");
-                    cmd.Parameters.AddWithValue("parm", tipo);
+                    cmd.Parameters.AddWithValue("parm", o.TipoOferta);
                     cmd.Parameters.AddWithValue("t_accion", "C");
                     cmd.Parameters.AddWithValue("att", "TipoOferta");
                     cmd.Parameters.AddWithValue("cod", -1);
@@ -181,7 +182,7 @@ namespace Ventas_Milton.Datos
         }
 
         /***************************ACTUALIZACIONES***************************/
-        public void ModificarTipoOferta(int cod, string tipo)
+        public void ModificarTipoOferta(csOfertas o)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -192,10 +193,10 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "Ofertas");
-                    cmd.Parameters.AddWithValue("parm", tipo);
+                    cmd.Parameters.AddWithValue("parm", o.TipoOferta);
                     cmd.Parameters.AddWithValue("t_accion", "M");
                     cmd.Parameters.AddWithValue("att", "TipoOferta");
-                    cmd.Parameters.AddWithValue("cod", cod);
+                    cmd.Parameters.AddWithValue("cod", o.IdOfertas);
 
                     con.getConexion().Open();
                     e = cmd.ExecuteNonQuery();
@@ -214,7 +215,7 @@ namespace Ventas_Milton.Datos
                 }
             }
         }
-        public void ModificarFactores(int cod, int idFactores)
+        public void ModificarFactores(csOfertas o)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -225,10 +226,10 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "mercaderia");
-                    cmd.Parameters.AddWithValue("parm", idFactores);
+                    cmd.Parameters.AddWithValue("parm", o.IdFactores);
                     cmd.Parameters.AddWithValue("t_accion", "M");
                     cmd.Parameters.AddWithValue("att", "Factores");
-                    cmd.Parameters.AddWithValue("cod", cod);
+                    cmd.Parameters.AddWithValue("cod", o.IdOfertas);
 
                     con.getConexion().Open();
                     e = cmd.ExecuteNonQuery();
@@ -249,7 +250,7 @@ namespace Ventas_Milton.Datos
         }
 
         /***************************ELIMINACIONES*****************************/
-        public void EliminarOferta(int cod, string estado)
+        public void EliminarOferta(csOfertas o)
         {
             using (MySqlCommand cmd = new MySqlCommand())
             {
@@ -260,10 +261,10 @@ namespace Ventas_Milton.Datos
                     cmd.CommandText = "operar_Tabla";
 
                     cmd.Parameters.AddWithValue("tabla", "Ofertas");
-                    cmd.Parameters.AddWithValue("parm", estado);
+                    cmd.Parameters.AddWithValue("parm", o.Eliminado);
                     cmd.Parameters.AddWithValue("t_accion", "E");
                     cmd.Parameters.AddWithValue("att", "eliminado");
-                    cmd.Parameters.AddWithValue("cod", cod);
+                    cmd.Parameters.AddWithValue("cod", o.IdOfertas);
 
                     con.getConexion().Open();
                     e = cmd.ExecuteNonQuery();

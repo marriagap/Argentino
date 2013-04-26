@@ -21,6 +21,12 @@ namespace Ventas_Milton.Datos
         private int _eliminado;
         private DateTime _fechaRegistro;
 
+        public DateTime FechaRegistro
+        {
+            get { return _fechaRegistro; }
+            set { _fechaRegistro = value; }
+        }
+
         public int Eliminado
         {
             get { return _eliminado; }
